@@ -5,6 +5,7 @@ const products = [
     category: "Outerwear",
     price: 89,
     image: "/products/t-shirt.jpg",
+    description: "A versatile everyday layer with a relaxed silhouette and timeless appeal.",
   },
 
   {
@@ -13,6 +14,7 @@ const products = [
     category: "Knitwear",
     price: 95,
     image: "products/t-shirt.jpg",
+    description: "A versatile everyday layer with a relaxed silhouette and timeless appeal.",
   },
   {
     id: 3,
@@ -20,6 +22,7 @@ const products = [
     category: "Trousers",
     price: 79,
     image: "/products/t-shirt.jpg",
+    description: "A versatile everyday layer with a relaxed silhouette and timeless appeal.",
   },
   {
     id: 4,
@@ -27,6 +30,7 @@ const products = [
     category: "Shirts",
     price: 69,
     image: "/products/t-shirt.jpg",
+    description: "A versatile everyday layer with a relaxed silhouette and timeless appeal.",
   },
 ];
 

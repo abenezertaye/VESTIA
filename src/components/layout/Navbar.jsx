@@ -6,7 +6,9 @@ function Navbar(){
     <nav className="relative w-full h-20 bg-cyan-900 text-white
     flex justify-between items-center px-8">
       <div>
-        <h1 className="text-2xl font-bold">VÉSTIA</h1>
+        <Link to="/" className="text-2xl font-bold">
+          <h1>VÉSTIA</h1>
+        </Link>
       </div>
 
       <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-7">
@@ -24,9 +26,12 @@ function Navbar(){
         <button aria-label="Wishlist" className="text-gray-300 hover:text-white transition-colors duration-200 cursor-pointer">
           <Heart size={20} strokeWidth={1.8}/>
         </button>
-        <button aria-label="Cart" className="text-gray-300 hover:text-white transition-colors duration-200 cursor-pointer">
-          <ShoppingBag size={20} strokeWidth={1.8}/>
-        </button>
+        <Link to="/cart">
+          <button aria-label="Cart" className="text-gray-300 hover:text-white transition-colors duration-200 cursor-pointer">
+            <ShoppingBag size={20} strokeWidth={1.8}/>
+          </button>
+        </Link>
+        
         <button aria-label="Account" className="text-gray-300 hover:text-white transition-colors duration-200 cursor-pointer">
           <User size={20} strokeWidth={1.8}/>
         </button>
