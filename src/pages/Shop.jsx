@@ -30,35 +30,35 @@ const Shop = () => {
         <div className="flex gap-6 border-b border-gray-200 mb-10">
           <button 
             onClick={() => setCategory("All")}
-            className="pb-3 text-sm text-gray-900 border-b border-gray-900"
+            className={`pb-3 text-sm ${category === "All" ? `text-gray-900 border-b border-gray-900`: `text-gray-500 hover:text-gray-900  transition-colors`}`}
           >
             All
           </button>
 
           <button 
             onClick={()=> setCategory("Outerwear")}
-            className="pb-3 text-sm text-gray-500 hover:text-gray-900 transition-colors"
+            className={`pb-3 text-sm ${category === "Outerwear" ? `text-gray-900 border-b border-gray-900`: `text-gray-500 hover:text-gray-900  transition-colors`}`}
           >
             Outerwear
           </button>
 
           <button 
             onClick={()=> setCategory("Knitwear")}
-            className="pb-3 text-sm text-gray-500 hover:text-gray-900 transition colors"
+            className={`pb-3 text-sm ${category === "Knitwear" ? `text-gray-900 border-b border-gray-900`: `text-gray-500 hover:text-gray-900  transition-colors`}`}
           >
             Knitwear
           </button>
 
           <button 
             onClick={()=> setCategory("Trousers")}
-            className="pb-3 text-sm text-gray-500 hover:text-gray-900 transition-colors"
+            className={`pb-3 text-sm ${category === "Trousers" ? `text-gray-900 border-b border-gray-900`: `text-gray-500 hover:text-gray-900  transition-colors`}`}
           >
             Trousers
           </button>
 
           <button 
             onClick={()=> setCategory("Shirts")}
-            className="pb-3 text-sm text-gray-500 hover:text-gray-900 transition-colors"
+            className={`pb-3 text-sm ${category === "Shirts" ? `text-gray-900 border-b border-gray-900`: `text-gray-500 hover:text-gray-900  transition-colors`}`}
           >
             Shirts
           </button>
