@@ -1,3 +1,5 @@
+import toast from "react-hot-toast"
+
 import { useState, useContext } from "react"
 import { useParams } from "react-router-dom"
 
@@ -6,13 +8,27 @@ import CartContext from "../context/CartContext"
 
 const ProductDetails = () => {
   const { id } = useParams()
-  const {cart, setCart} = useContext(CartContext)
+  const {cart, setCart, addToCart} = useContext(CartContext)
 
   const product = products.find(
     (product)=> product.id === Number(id)
   )
 
   const [quantity, setQuantity] = useState(1)
+
+  function handleAddToCart(){
+
+    const prod = cart.find(item=> item.product.id === product.id)
+
+    addToCart(product,quantity)
+
+    if(prod){
+      const updatedQuantity = prod.quantity + quantity
+      toast.success(`${product.name} quantity updated to ${updatedQuantity} successfully!`)
+    }else{
+      toast.success(`${quantity}x ${product.name} added to cart!`)
+    }
+  }
   return (
     <main className="px-6 py-16">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -43,7 +59,7 @@ const ProductDetails = () => {
 
           <div className="mt-8 flex items-center gap-4">
             <button 
-              onClick={()=> setQuantity(Math.max(1, quantity -1))}
+              onClick={()=> setQuantity(Math.max(1, quantity - 1))}
               className="w-10 h-10 border border-gray-300 text-gray-700 hover:border-gray-900 transition-colors"
             >
               -
@@ -62,22 +78,10 @@ const ProductDetails = () => {
           </div>
 
           <button
-            onClick={()=>{
-              let productExists = false
-              const newCart = cart.map(item => {
-                if (item.product.id === product.id) {
-                  productExists = true
-                  return { ...item, quantity: item.quantity + quantity }
-                }
-
-                return item
-              })
-
-              productExists ? setCart(newCart): setCart([...cart, {product, quantity}])
-            }}
+            onClick = {handleAddToCart}
             className="mt-6 w-full bg-gray-900 py-4 text-sm uppercase tracking-[0.15rem] text-white hover:bg-gray-800 transition-colors"
           >
-            Add to Cart
+            Add to Cart +{quantity}
           </button>
         </div>
       </div>
