@@ -3,7 +3,7 @@ import CartContext from "../context/CartContext"
 
 const Cart = () => {
 
-  const { cart, setCart } = useContext(CartContext)
+  const { cart, setCart, updateQuantity } = useContext(CartContext)
 
   const subtotal = cart.reduce((accumulator, item)=>{
      return accumulator + (item.product.price * item.quantity)
@@ -55,17 +55,7 @@ const Cart = () => {
                 {/** Add or take items from cart */}
                 <div className="flex gap-2 mt-2 text-sm text-gray-600">
                   <button 
-                    onClick={()=>{
-                      const newCart = cart.map((prod)=>{
-                        if(prod.product.id === item.product.id){
-                          return {...prod, quantity: Math.max(1, prod.quantity - 1)}
-                        }
-
-                        return prod
-                      })
-
-                      setCart(newCart)
-                    }}
+                    onClick={()=>{updateQuantity(item.product.id, -1)}}
                   className="w-10 h-8 border border-gray-300 text-gray-700 hover:border-gray-900 transition-colors"
                   >
                     -
@@ -76,17 +66,7 @@ const Cart = () => {
                   </p>
 
                   <button 
-                      onClick={()=>{
-                      const newCart = cart.map((prod)=>{
-                        if(prod.product.id === item.product.id){
-                          return {...prod, quantity: prod.quantity + 1}
-                        }
-
-                        return prod
-                      })
-
-                      setCart(newCart)
-                    }}
+                      onClick={()=>{updateQuantity(item.product.id, 1)}}
                     className="w-10 h-8 border border-gray-300 text-gray-700 hover:border-gray-900 transition-colors">
                     +
                   </button>
