@@ -32,10 +32,46 @@ const Cart = () => {
                 <p className="mt-2 text-sm text-gray-600">
                   ${item.product.price}
                 </p>
+                {/** Add or take items from cart */}
+                <div className="flex gap-2 mt-2 text-sm text-gray-600">
+                  <button 
+                    onClick={()=>{
+                      const newCart = cart.map((prod)=>{
+                        if(prod.product.id === item.product.id){
+                          return {...prod, quantity: Math.max(1, prod.quantity - 1)}
+                        }
 
-                <p className="mt-2 text-sm text-gray-600">
-                  Quantity: {item.quantity}
-                </p>
+                        return prod
+                      })
+
+                      setCart(newCart)
+                    }}
+                  className="w-10 h-8 border border-gray-300 text-gray-700 hover:border-gray-900 transition-colors"
+                  >
+                    -
+                  </button>
+
+                  <p className="mt-2 text-sm text-gray-600">
+                    {item.quantity}
+                  </p>
+
+                  <button 
+                      onClick={()=>{
+                      const newCart = cart.map((prod)=>{
+                        if(prod.product.id === item.product.id){
+                          return {...prod, quantity: prod.quantity + 1}
+                        }
+
+                        return prod
+                      })
+
+                      setCart(newCart)
+                    }}
+                    className="w-10 h-8 border border-gray-300 text-gray-700 hover:border-gray-900 transition-colors">
+                    +
+                  </button>
+                </div>
+                
 
                 <button 
                   onClick={()=>{

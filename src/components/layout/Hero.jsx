@@ -6,7 +6,7 @@ function Hero() {
       <img
         src={heroImage}
         alt="VÉSTIA fashion collection"
-        className="absolute inset-0 w-full h-full object-cover object-[center_15%]"
+        className="absolute inset-0 w-full h-full object-cover object-[center_15%] select-none"
       />
 
       <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-transparent" />
