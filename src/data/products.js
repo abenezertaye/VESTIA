@@ -4,7 +4,7 @@ const products = [
     name: "Essential Overshirt",
     category: "Outerwear",
     price: 89,
-    image: "/products/t-shirt.jpg",
+    image: "/products/overshirt.jpg",
     description: "A versatile everyday layer with a relaxed silhouette and timeless appeal.",
   },
 
@@ -13,7 +13,7 @@ const products = [
     name: "Relaxed Knit Sweater",
     category: "Knitwear",
     price: 95,
-    image: "products/t-shirt.jpg",
+    image: "/products/knitwear.jpg",
     description: "A versatile everyday layer with a relaxed silhouette and timeless appeal.",
   },
   {
@@ -21,7 +21,7 @@ const products = [
     name: "Tailored Everyday Trousers",
     category: "Trousers",
     price: 79,
-    image: "/products/t-shirt.jpg",
+    image: "/products/trousers.jpg",
     description: "A versatile everyday layer with a relaxed silhouette and timeless appeal.",
   },
   {

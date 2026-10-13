@@ -1,4 +1,5 @@
 import { StrictMode } from 'react'
+import { Toaster } from 'react-hot-toast'
 import { CartProvider } from './context/CartContext.jsx'
 import { createRoot } from 'react-dom/client'
 import './index.css'
@@ -10,6 +11,7 @@ createRoot(document.getElementById('root')).render(
     <StrictMode>
       <CartProvider>
         <App />
+        <Toaster />
       </CartProvider>
     </StrictMode>
   </BrowserRouter>

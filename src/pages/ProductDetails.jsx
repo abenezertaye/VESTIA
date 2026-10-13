@@ -8,7 +8,7 @@ import CartContext from "../context/CartContext"
 
 const ProductDetails = () => {
   const { id } = useParams()
-  const {cart, setCart, addToCart} = useContext(CartContext)
+  const {cart, addToCart} = useContext(CartContext)
 
   const product = products.find(
     (product)=> product.id === Number(id)
