@@ -4,12 +4,32 @@ import CartContext from "../context/CartContext"
 const Cart = () => {
 
   const { cart, setCart } = useContext(CartContext)
+
+  const subtotal = cart.reduce((accumulator, item)=>{
+     return accumulator + (item.product.price * item.quantity)
+  },0)
+  
   return (
     <main className="px-6 py-16">
-      <div className="max-ww-7xl mx-auto">
-        <h1 className="text-5xl font-normal text-gray-900">
-          Your Cart
-        </h1>
+      <div className="max-w-7xl mx-auto">
+        <div className="flex justify-between">
+           <h1 className="text-5xl font-normal text-gray-900">
+              Your Cart
+           </h1>
+ 
+           <div className="w-full max-w-md h-50 bg-gray-200 rounded-3xl px-6 py-6">
+              <div className="flex justify-between items-center mb-5">
+                <h2 className="font-normal text-3xl">Subtotal</h2>
+                <p className="">${subtotal.toFixed(2)}</p>
+              </div>
+              <div className="flex justify-between items-center mb-5">
+                <p className="text-base">Shipping</p>
+                <p className="text-xs">Calculated at Checkout</p>
+              </div>     
+              <button className="w-full h-12 font-medium bg-gray-900 text-white mt-4 transition-colors duration-300 ease-in-out hover:bg-gray-700 hover:text-gray-100">Checkout</button>
+           </div>
+        </div>
+       
 
         <div className="mt-12 space-y-8">
           {cart.map((item) => (
