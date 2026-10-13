@@ -1,9 +1,19 @@
-import { createContext, useState } from "react"
+import { createContext, useState, useEffect } from "react"
 
 const CartContext = createContext()
 
 export function CartProvider({ children }){
-  const [cart, setCart] = useState([])
+  const [cart, setCart] = useState(()=>{
+    try{
+      return JSON.parse(localStorage.getItem('vestia-cart')) || []
+    } catch(error){
+      console.error("Failed to parse JSON: ", error.message);
+    }
+  })
+
+  useEffect(()=>{
+    localStorage.setItem('vestia-cart',JSON.stringify(cart))
+  }, [cart])
 
   function removeFromCart(productId){
     setCart(currentCart=>{
